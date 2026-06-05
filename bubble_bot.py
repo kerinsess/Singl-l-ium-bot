@@ -1,8 +1,20 @@
-"""
-Telegram-бот для расчёта прироста ресурсов (пузыри, карточки, сундуки)
-Установка: pip install pyTelegramBotAPI
-Запуск: python bubble_bot.py
-"""
+import sys
+import traceback
+import time
+
+def catch_error(exc_type, exc_value, exc_traceback):
+    print("\n" + "="*50)
+    print("❗ ВОТ ИЗ-ЗА ЧЕГО ПАДАЕТ БОТ ❗")
+    traceback.print_exception(exc_type, exc_value, exc_traceback)
+    print("="*50 + "\n")
+    while True: time.sleep(60)
+
+sys.excepthook = catch_error
+
+# ───────────────────────────────────────────────
+# ДАЛЬШЕ ИДЕТ ВЕСЬ ТВОЙ ОРИГИНАЛЬНЫЙ КОД БЕЗ ИЗМЕНЕНИЙ
+# import telebot
+# и так далее...
 
 import os
 import telebot
